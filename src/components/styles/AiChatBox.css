@@ -66,13 +66,19 @@
 }
 
 .ai-chat-wrapper {
-  width: min(360px, calc(100vw - 2rem));
+  width: 360px;
+  min-width: 280px;
+  max-width: min(560px, calc(100vw - 2rem));
+  min-height: 360px;
+  max-height: calc(100vh - 2rem);
   background: rgba(255, 255, 255, 0.98);
   border: 1px solid rgba(17, 17, 17, 0.08);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  height: min(500px, 70vh);
+  height: 500px;
+  resize: both;
+  box-sizing: border-box;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
   overflow: hidden;
   font-family:
@@ -131,14 +137,49 @@
 
 .chat-bubble {
   max-width: 80%;
-  padding: 0.8rem 0.9rem;
-  border-radius: 16px;
+  padding: 0.9rem 1rem;
+  border-radius: 18px;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .chat-bubble p {
   margin: 0;
+}
+
+.assistant-response {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.assistant-response p {
+  margin: 0;
+}
+
+.assistant-response strong {
+  color: #183f35;
+  font-weight: 700;
+}
+
+.assistant-response .response-heading {
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(24, 63, 53, 0.16);
+  color: #183f35;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  line-height: 1.15;
+}
+
+.assistant-response .response-list-item {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.response-dot {
+  flex: 0 0 auto;
+  color: #c77745;
+  font-weight: 700;
 }
 
 .chat-bubble.user {
@@ -149,10 +190,11 @@
 }
 
 .chat-bubble.assistant {
-  background: #f0efe9;
+  background: linear-gradient(145deg, #f4f1ea, #ebece5);
   color: #222;
   align-self: flex-start;
   border-bottom-left-radius: 4px;
+  box-shadow: inset 3px 0 0 #c77745;
 }
 
 .chat-bubble.typing {
@@ -231,7 +273,11 @@
 
   .ai-chat-wrapper {
     width: min(320px, calc(100vw - 1.2rem));
+    min-width: 260px;
+    max-width: calc(100vw - 1.2rem);
     height: min(420px, 68vh);
+    min-height: 320px;
+    max-height: calc(100vh - 1.2rem);
   }
 
   .chat-header {

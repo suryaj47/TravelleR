@@ -2,6 +2,51 @@ import React, { useState, useEffect } from "react";
 import { sendChatMessage } from "../services/aiChatService";
 import "./styles/AiChatBox.css";
 
+const renderInlineMarkdown = (text) => {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={`${part}-${index}`}>{part.slice(2, -2)}</strong>;
+    }
+
+    return part;
+  });
+};
+
+const FormattedAssistantMessage = ({ content }) => {
+  const lines = content
+    .replace(/\r/g, "")
+    .split("\n")
+    .flatMap((line) => line.split("|").map((part) => part.trim()))
+    .map((line) => line.replace(/^-{3,}$/g, "").trim())
+    .filter(Boolean);
+
+  return (
+    <div className="assistant-response">
+      {lines.map((line, index) => {
+        const isHeading = index === 0 && line.length < 90;
+        const isListItem = /^[-*]\s+/.test(line);
+        const cleanLine = isListItem ? line.replace(/^[-*]\s+/, "") : line;
+
+        return isHeading ? (
+          <p className="response-heading" key={`${line}-${index}`}>
+            {renderInlineMarkdown(cleanLine)}
+          </p>
+        ) : (
+          <p
+            className={isListItem ? "response-list-item" : ""}
+            key={`${line}-${index}`}
+          >
+            {isListItem && <span className="response-dot">•</span>}
+            {renderInlineMarkdown(cleanLine)}
+          </p>
+        );
+      })}
+    </div>
+  );
+};
+
 const AiChatBox = ({ destinationName }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -77,7 +122,11 @@ const AiChatBox = ({ destinationName }) => {
                 key={`${msg.role}-${index}`}
                 className={`chat-bubble ${msg.role}`}
               >
-                <p>{msg.content}</p>
+                {msg.role === "assistant" ? (
+                  <FormattedAssistantMessage content={msg.content} />
+                ) : (
+                  <p>{msg.content}</p>
+                )}
               </div>
             ))}
             {loading && (
