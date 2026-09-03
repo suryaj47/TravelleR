@@ -1,0 +1,378 @@
+.explore-page {
+  min-height: 100vh;
+  padding: 7.5rem 2rem 5rem;
+  background:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(191, 112, 76, 0.16),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 88% 38%,
+      rgba(82, 115, 105, 0.15),
+      transparent 28%
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(24, 39, 35, 0.025) 0 1px,
+      transparent 1px 9px
+    ),
+    #f1f3ed;
+  font-family: "Cormorant Garamond", serif;
+  color: #18231f;
+}
+
+.explore-header {
+  max-width: 1200px;
+  margin: 0 auto 3.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
+  column-gap: 4rem;
+  align-items: end;
+  text-align: left;
+}
+
+.explore-header::before {
+  content: "TRAVELLER / FIELD NOTES";
+  grid-column: 1 / -1;
+  margin-bottom: 1.2rem;
+  color: #bd684a;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.explore-title {
+  grid-column: 1;
+  margin: 0;
+  max-width: 700px;
+  font-size: clamp(3.4rem, 7vw, 6.6rem);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  color: #18231f;
+}
+
+.explore-header p {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+  max-width: 300px;
+  margin: 0 0 0.45rem;
+  font-size: 1.18rem;
+  line-height: 1.4;
+  color: #51615b;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.explore-controls {
+  grid-column: 1 / -1;
+  margin-top: 3rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.7fr);
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid rgba(24, 35, 31, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 18px 38px rgba(24, 35, 31, 0.06);
+}
+
+.explore-search-input {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(24, 35, 31, 0.18);
+  border-radius: 4px;
+  background: #fffdf8;
+  box-shadow: none;
+  font-size: 1rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #1a1a1a;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.explore-search-input:focus {
+  border-color: #bd684a;
+  box-shadow: 0 0 0 3px rgba(189, 104, 74, 0.13);
+}
+
+.continent-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.7rem;
+}
+
+.tab-btn {
+  border: 1px solid rgba(24, 35, 31, 0.16);
+  background: transparent;
+  color: #40504a;
+  border-radius: 3px;
+  padding: 0.62rem 0.85rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+  background: #18231f;
+  color: #ffffff;
+  border-color: #18231f;
+}
+
+.explore-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.destination-card {
+  display: flex;
+  flex-direction: column;
+  background: #fffdf8;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid rgba(24, 35, 31, 0.13);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(24, 35, 31, 0.07);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 34px rgba(24, 35, 31, 0.14);
+  border-color: rgba(189, 104, 74, 0.5);
+}
+
+.destination-card:first-child {
+  grid-column: span 2;
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #dce5dc;
+}
+
+.destination-card:first-child .card-image-wrapper {
+  height: 330px;
+}
+
+.card-image-wrapper::after {
+  content: "VIEW JOURNEY  ->";
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  padding: 0.42rem 0.55rem;
+  background: rgba(255, 253, 248, 0.9);
+  color: #18231f;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7e7266;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.destination-card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.15rem 1.15rem 1.3rem;
+  background: #fffdf8;
+}
+
+.card-title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.55rem, 2vw, 2.25rem);
+  line-height: 1.1;
+  color: #18231f;
+  font-weight: 500;
+}
+
+.card-blurb {
+  margin: 0;
+  color: #51615b;
+  font-size: 1rem;
+  line-height: 1.55;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background: #e7eee7;
+  color: #40504a;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-weight: 600;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #51615b;
+  font-size: 1.05rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(24, 35, 31, 0.1);
+  border-radius: 8px;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+@media (max-width: 640px) {
+  .explore-page {
+    padding: 6.5rem 1rem 3rem;
+  }
+
+  .explore-header {
+    display: block;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .explore-header::before {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .explore-title {
+    font-size: 3.6rem;
+  }
+
+  .explore-header p {
+    max-width: 280px;
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+
+  .explore-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 1.5rem;
+    padding: 0.7rem;
+  }
+
+  .explore-search-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .continent-tabs {
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .explore-grid {
+    gap: 1.1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .destination-card:first-child {
+    grid-column: auto;
+  }
+
+  .card-image-wrapper {
+    height: 230px;
+  }
+
+  .destination-card:first-child .card-image-wrapper {
+    height: 230px;
+  }
+
+  .card-content {
+    padding: 1.1rem 1rem 1.2rem;
+  }
+
+  .card-title {
+    font-size: 1.7rem;
+  }
+
+  .card-blurb {
+    font-size: 0.92rem;
+  }
+}
