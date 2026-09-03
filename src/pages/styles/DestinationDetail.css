@@ -60,16 +60,22 @@
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
 }
 
-/* Hero Section Placeholder */
+.hero-text-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.72);
+}
 
 .hero-text-content h1 {
   max-width: 850px;
   font-size: clamp(4rem, 9vw, 8rem);
   font-weight: 500;
   margin: 0;
-  line-height: 0.85;
+  line-height: 0.95;
   letter-spacing: -0.02em;
-  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.8);
 }
 
 .hero-text-content h2 {
@@ -80,7 +86,7 @@
   font-size: 1.25rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.84);
-  margin: 0.5rem 0 0 0;
+  margin: 1.1rem 0 0;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -266,6 +272,7 @@
 
   .hero-text-content h2 {
     font-size: 0.8rem;
+    margin-top: 0.8rem;
     letter-spacing: 0.08em;
   }
 
