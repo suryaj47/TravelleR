@@ -2,7 +2,37 @@
 
 TravelleR is a React travel discovery website for browsing destinations, viewing destination details, checking current weather, generating itineraries, and asking a destination-aware AI concierge for travel suggestions.
 
-## What The App Includes
+## Screenshots
+
+### Homepage
+
+![TravelleR homepage](Screenshots/Homepage.png)
+
+### Explore Destinations
+
+![Explore destinations page](Screenshots/ExplorePage1.png)
+
+![Explore destinations page with filters](Screenshots/ExplorePage2.png)
+
+### Destination Details
+
+![Destination details page](Screenshots/DestinationPage.png)
+
+![Notable locations](Screenshots/NotableLocations.png)
+
+### AI Features
+
+![AI itinerary planner](Screenshots/AIPlanner.png)
+
+![Destination concierge chatbot](Screenshots/Chatbot.png)
+
+### Responsive Pages
+
+![TravelleR footer](Screenshots/Footer.png)
+
+![Not found page](Screenshots/NotfoundPage.png)
+
+## Completed Features
 
 - A video landing page with a link to the destination explorer.
 - An Explore page at `/destinations` with destination search and continent filters.
@@ -109,24 +139,6 @@ Both keys are optional during local development. Without them, the app uses fall
 
 ```bash
 npm run dev
-```
-
-### Build For Production
-
-```bash
-npm run build
-```
-
-### Preview The Production Build
-
-```bash
-npm run preview
-```
-
-### Lint
-
-```bash
-npm run lint
 ```
 
 ## Current Limitations
