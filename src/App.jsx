@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import DestinationPage from "./pages/DestinationsPage";
 import ExplorePage from "./pages/ExplorePage";
+import NotFoundPage from "./pages/NotFoundPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -17,6 +18,7 @@ function AppLayout() {
         <Route path="/destinations" element={<ExplorePage />} />
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/destination/:slug" element={<DestinationPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       {showFooter && <Footer />}
     </>
